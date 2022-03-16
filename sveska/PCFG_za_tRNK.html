@@ -13719,10 +13719,10 @@ div#notebook {
 
 <div class="output_text output_subarea output_execute_result">
 <pre>(True,
- {&#39;A&#39;: {&#39;A&#39;: 0, &#39;G&#39;: 0, &#39;U&#39;: 0, &#39;C&#39;: 0},
-  &#39;G&#39;: {&#39;A&#39;: 0, &#39;G&#39;: 0, &#39;U&#39;: 1, &#39;C&#39;: 0},
-  &#39;U&#39;: {&#39;A&#39;: 0, &#39;G&#39;: 1, &#39;U&#39;: 0, &#39;C&#39;: 0},
-  &#39;C&#39;: {&#39;A&#39;: 0, &#39;G&#39;: 0, &#39;U&#39;: 0, &#39;C&#39;: 0}})</pre>
+ {&#39;C&#39;: {&#39;C&#39;: 0, &#39;G&#39;: 0, &#39;A&#39;: 0, &#39;U&#39;: 0},
+  &#39;G&#39;: {&#39;C&#39;: 0, &#39;G&#39;: 0, &#39;A&#39;: 0, &#39;U&#39;: 1},
+  &#39;A&#39;: {&#39;C&#39;: 0, &#39;G&#39;: 0, &#39;A&#39;: 0, &#39;U&#39;: 0},
+  &#39;U&#39;: {&#39;C&#39;: 0, &#39;G&#39;: 1, &#39;A&#39;: 0, &#39;U&#39;: 0}})</pre>
 </div>
 
 </div>
@@ -13954,10 +13954,10 @@ div#notebook {
  &#39;((..((...)).((..))...((..)))).&#39;,
  30,
  {5: 9, 4: 10, 13: 16, 12: 17, 22: 25, 21: 26, 1: 27, 0: 28},
- {&#39;A&#39;: {&#39;A&#39;: 0, &#39;G&#39;: 0, &#39;U&#39;: 0, &#39;C&#39;: 0},
-  &#39;G&#39;: {&#39;A&#39;: 0, &#39;G&#39;: 0, &#39;U&#39;: 1, &#39;C&#39;: 5},
-  &#39;U&#39;: {&#39;A&#39;: 1, &#39;G&#39;: 0, &#39;U&#39;: 0, &#39;C&#39;: 0},
-  &#39;C&#39;: {&#39;A&#39;: 0, &#39;G&#39;: 1, &#39;U&#39;: 0, &#39;C&#39;: 0}},
+ {&#39;C&#39;: {&#39;C&#39;: 0, &#39;G&#39;: 1, &#39;A&#39;: 0, &#39;U&#39;: 0},
+  &#39;G&#39;: {&#39;C&#39;: 5, &#39;G&#39;: 0, &#39;A&#39;: 0, &#39;U&#39;: 1},
+  &#39;A&#39;: {&#39;C&#39;: 0, &#39;G&#39;: 0, &#39;A&#39;: 0, &#39;U&#39;: 0},
+  &#39;U&#39;: {&#39;C&#39;: 0, &#39;G&#39;: 0, &#39;A&#39;: 1, &#39;U&#39;: 0}},
  Tree(&#39;S&#39;, [(&#39;G&#39;, &#39;(&#39;), (&#39;U&#39;, &#39;(&#39;), (&#39;U&#39;, &#39;.&#39;), (&#39;A&#39;, &#39;.&#39;), (&#39;G&#39;, &#39;(&#39;), (&#39;C&#39;, &#39;(&#39;), (&#39;A&#39;, &#39;.&#39;), (&#39;U&#39;, &#39;.&#39;), (&#39;C&#39;, &#39;.&#39;), (&#39;G&#39;, &#39;)&#39;), (&#39;C&#39;, &#39;)&#39;), (&#39;G&#39;, &#39;.&#39;), (&#39;G&#39;, &#39;(&#39;), (&#39;G&#39;, &#39;(&#39;), (&#39;A&#39;, &#39;.&#39;), (&#39;A&#39;, &#39;.&#39;), (&#39;C&#39;, &#39;)&#39;), (&#39;C&#39;, &#39;)&#39;), (&#39;U&#39;, &#39;.&#39;), (&#39;U&#39;, &#39;.&#39;), (&#39;U&#39;, &#39;.&#39;), (&#39;G&#39;, &#39;(&#39;), (&#39;G&#39;, &#39;(&#39;), (&#39;A&#39;, &#39;.&#39;), (&#39;A&#39;, &#39;.&#39;), (&#39;C&#39;, &#39;)&#39;), (&#39;C&#39;, &#39;)&#39;), (&#39;A&#39;, &#39;)&#39;), (&#39;U&#39;, &#39;)&#39;), (&#39;G&#39;, &#39;.&#39;)]))</pre>
 </div>
 
@@ -14162,7 +14162,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Iako su konteksno slobodne gramatike, sasvim prirodno, oslobođene od konteksta, on im se može donekle pridodati pažljivom konstrukcijom pravila izvođenja. Primera radi, pravilo $S → kS$ može se prepisati kao $S → kS^k$. Novi neterminal $S^k$ uvodi se za svaki terminal $k$ i u suštini poznaje svoj kontekst: u pitanju je $S$ koje se nalazi upravo iza simbola $k$. Ovakvo usložnjavanje gramatike naziva se <a href="https://www3.nd.edu/~dchiang/teaching/nlp/2016/notes/chapter13v2.pdf">markovizacija</a> i predstavlja jedan od načina za povećavanje opisne moći.</p>
+<p>Iako su kontekstno slobodne gramatike, sasvim prirodno, oslobođene od konteksta, on im se može donekle pridodati pažljivo smišljenim pravilima izvođenja. Primera radi, pravilo $S → kS$ može se prepisati kao $S → kS^k$. Novi neterminal $S^k$ uvodi se za svaki terminal $k$ i u suštini poznaje svoj kontekst: u pitanju je $S$ koje se nalazi upravo iza simbola $k$. Ovakvo usložnjavanje gramatike naziva se <a href="https://www3.nd.edu/~dchiang/teaching/nlp/2016/notes/chapter13v2.pdf">markovizacija</a> i predstavlja jedan od načina za povećavanje opisne moći.</p>
 
 </div>
 </div>
@@ -14953,10 +14953,10 @@ $$ \large G → s \scriptsize\text{ (glava je tačno jedan nukleotid) } $$$$ \la
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;A&#39;: {&#39;A&#39;: 0, &#39;G&#39;: 0, &#39;U&#39;: 1066, &#39;C&#39;: 0},
- &#39;G&#39;: {&#39;A&#39;: 0, &#39;G&#39;: 0, &#39;U&#39;: 370, &#39;C&#39;: 3631},
- &#39;U&#39;: {&#39;A&#39;: 1206, &#39;G&#39;: 190, &#39;U&#39;: 0, &#39;C&#39;: 0},
- &#39;C&#39;: {&#39;A&#39;: 0, &#39;G&#39;: 2497, &#39;U&#39;: 0, &#39;C&#39;: 0}}</pre>
+<pre>{&#39;C&#39;: {&#39;C&#39;: 0, &#39;G&#39;: 2497, &#39;A&#39;: 0, &#39;U&#39;: 0},
+ &#39;G&#39;: {&#39;C&#39;: 3631, &#39;G&#39;: 0, &#39;A&#39;: 0, &#39;U&#39;: 370},
+ &#39;A&#39;: {&#39;C&#39;: 0, &#39;G&#39;: 0, &#39;A&#39;: 0, &#39;U&#39;: 1066},
+ &#39;U&#39;: {&#39;C&#39;: 0, &#39;G&#39;: 190, &#39;A&#39;: 1206, &#39;U&#39;: 0}}</pre>
 </div>
 
 </div>
@@ -15946,7 +15946,7 @@ $$ \large G → s \scriptsize\text{ (glava je tačno jedan nukleotid) } $$$$ \la
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ribonukleinska kiselina se najčešće predstavlja kao niska nad azbukom ribonukleotida, koja ponekad sadrži i modifikovane baze. To je njena primarna struktura. Transportna <em>RNK</em> pritom ima karakterističnu sekundarnu strukturu u obliku deteline sa tri lista. Ona je predstavljena niskom koja se sastoji od tačke (neuparene baze) i zagrada (uparivanje). Razmotrena je primena probabilističkih kontekstno slobodnih gramatika (<em>PCFG</em>) u predviđanju uvijanja <em>tRNK</em>.</p>
+<p>Ribonukleinska kiselina se najčešće predstavlja kao niska nad azbukom ribonukleotida, koja ponekad sadrži i modifikovane baze. To je njena primarna struktura. Transportna <em>RNK</em> pritom ima karakterističnu sekundarnu strukturu u obliku deteline sa tri lista. Ona je predstavljena niskom koja se sastoji od tačke (neuparene baze) i zagrada (uparivanja). Razmotrena je primena probabilističkih kontekstno slobodnih gramatika (<em>PCFG</em>) u predviđanju uvijanja <em>tRNK</em>.</p>
 
 </div>
 </div>
@@ -15962,7 +15962,7 @@ $$ \large G → s \scriptsize\text{ (glava je tačno jedan nukleotid) } $$$$ \la
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Rezultati su upoređeni kako vizuelno, tako i upotrebom numeričkih mera uspešnosti karakterističnih za istraživanje podataka: udeo sasvim tačno predviđenih struktura, odziv, preciznost. Najbolje se pokazao ujedno i najsloženiji <em>CM</em>, sa preko pola tačnih struktura, a ostalim merama bliskih maksimumu. Dobro se pokazala i gramatika <em>KH-99</em>, dok ona tipa Nusinov ima samo teorijski značaj. Svi zaključci su u saglasnosti sa rezultatima iz srodne <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-5-71">literature</a>.</p>
+<p>Rezultati su upoređeni kako vizuelno, tako i upotrebom numeričkih mera uspešnosti karakterističnih za istraživanje podataka: udeo sasvim tačno predviđenih (elemenata) struktura, odziv, preciznost. Najbolje se pokazao ujedno i najsloženiji <em>CM</em>, sa preko pola tačnih struktura, a ostalim merama bliskih maksimumu. Dobro se pokazala i gramatika <em>KH-99</em>, dok ona tipa Nusinov ima samo teorijski značaj. Svi zaključci su u saglasnosti sa rezultatima iz srodne <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-5-71">literature</a>.</p>
 
 </div>
 </div>

@@ -43,10 +43,6 @@
 Beograd, 2022.
 \end{center}
 
-
-
-%END  PAGE 1 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 \newpage
 
 \section{Vrste grafovskih probabilističkih modela}
@@ -80,14 +76,11 @@ Kao specijalan slučaj HMM modela koji imaju samo jednu izlaznu slučajnu promen
 
 Dalje će detaljnije biti razmatrani samo sekvencijalni grafovski probabilistički modeli i kako se oni uklapaju u opštu teoriju modelovanja sekvenci. Modeli sekvenci su važni u bioinformatici (računarskoj biologiji) zato što se njima opisuju strukture poput DNK i RNK (sekvence nukleobaza), ali i proteina (sekvenca aminokiselina). U obradi prirodnih jezika (računarskoj lingvistici), analogno se modeluju reči kao sekvence karaktera i rečenice kao sekvence reči.
 
-
-
 \section{Sistematizacija modela struktura sekvenci}
 
 Najjednostavnija struktura sekvenci podrazumeva postojanje susednih zavisnosti između elemenata sekvenci -- vrednost $i$-tog elementa sekvence zavisi od vrednosti $(i-1)$-og elementa sekvence. Kompleksnije strukture sekvenci uključuju dugoročne zavisnosti između pojedinačnih elemenata sekvenci, zavisnosti jednog elemenata od više prethodnih elementa sekvenci, kao i njihove kombinacije.
 
 Opštu teoriju modelovanja struktura sekvenci formalizovali su računarski lingvisti kroz \textit{teoriju formalnih jezika i gramatika}.  Formalne gramatike su razvijene u mahom neuspelom pokušaju da precizno okarakterišu strukturu prirodnih jezika. Kasnije su postale važne u teorijskom računarstvu zato što se programski jezici, za razliku od prirodnih jezika, mogu precizno okarakterisati pomoću konačnog skupa pravila. Danas formalne gramatike imaju široku primenu u različitim oblastima, između ostalog i u molekularnoj biologiji za analizu bioloških sekvenci.
-
 
 \subsection{Hijerarhija Čomskog}
 
@@ -116,7 +109,6 @@ Koristićemo sledeće oznake: $W$ za bilo koji neterminalni simbol, $a$ za bilo 
 \vspace*{0.2cm}
 \noindent \textbf{Gramatike bez restrikcija} \hspace{0.3cm} Ni leva ni desna strana pravila izvođenja nemaju restrikcije, odnosno oblika su $\alpha_1 W  \alpha_2 \rightarrow \gamma$. 
 
-
 \subsection{Automati}
 
 Svaka od klasa formalnih gramatika ima odgovarajući apstraktni računarski formalizam koji se naziva \textit{automat}. Automati su apstraktne mašine kojima se kao ulaz prosleđuju sekvence (reči jezika). Automat obrađuje (parsira) sekvencu deo po deo primenjujući pravila gramatike, pritom menjajući stanje u kome se nalazi. U zavisnosti od završnog stanja automata, sekvenca sa ulaza može biti prihvaćena ili odbijena. Shodno tome, automati se često nazivaju \textit{prihvatačkim sistemima}, za razliku od formalnih gramatika koji se nazivaju \textit{generatorskim sistemima}. 
@@ -133,7 +125,6 @@ Kako ovakav način parsiranja sekvence omogućava uparivanje elemenata sekvence,
 \vspace*{0.2cm}
 \noindent \textbf{Tjuringova mašina} \hspace{0.3cm} Ekvivalent su gramatikama bez restrikcija. Tjuringova mašina je suštinski isto što i linearno-ograničeni automat sa neograničenom dužinom trake (memorije).
 
-
 \subsection{Stohasticke (probabilističke) gramatike}
 
 Svaka od formalnih gramatika iz hijerarhije Čomskog može se koristiti u stohastičkom obliku kao osnova za probabilističke modele struktura sekvenci. Stohastičke gramatike generišu neku sekvencu $x$ sa nekom verovatnoćom $P(x)$, dok nestohastičke gramatike ili mogu da generišu sekvencu $x$ ili ne. Drugim rečima, stohastičke gramatike definišu raspodelu verovatnoća nad sekvencama $x$, tako da $\sum_x P(x) = 1$.
@@ -149,9 +140,6 @@ Na slici 3 data je tabela koja sistematizuje klase gramatika, njima odgovarajuć
     \vspace{0.2cm}
     \caption{Sistematizacija modela struktura sekvenci}
 \end{figure}
-
-
-
 
 \section{HMM}
 
@@ -286,8 +274,6 @@ HMM modeli imaju široku primenu, kako u bioinformatici tako i u mnogim drugim o
   \caption{Struktura \textit{pair HMM} na levoj strani i \textit{profile HMM} na desnoj}
 \end{figure}
 
-
-
 \newpage
 \section{SCFG modeli}
 
@@ -308,11 +294,9 @@ Kod kontekstno-slobodnih gramatika, izvođenja (parsiranja) sekvenci imaju struk
 
 Svako podstablo stabla parsiranja odgovara izvođenju nekog kontinualnog segmenta posmatrane sekvence. Ovo svojstvo stabala parsiranja je veoma važno zato što omogućava algoritmima da grade optimalna stabla parsiranja (tj. izvođenja) za sekvencu rekurzivno izgrađujući sve veća i veća optimalna podstabla parsiranja za sve veće i veće podsekvence.
 
-
 \subsection{Normalna forma kontekstno-slobodnih gramatika}
 
 Kako desna strana pravila izvođenja kod kontekstno-slobodnih gramatika može imati proizvoljnu formu, da bi se mogli formulisati opšti algoritmi za parsiranje sekvenci, potrebno je nametnuti neku vrstu normalne forme za pravila izvođenja. Jedna takva normalna forma je \textit{normalna forma Čomskog}, koja zahteva da su sva pravila izvođenja oblika $W_v \rightarrow W_yW_z$ ili $W_v \rightarrow a$. Svaka kontekstno-slobodna gramatika se može transformisati u normalnu formu zamenom pojedinačnih pravila izvođenja (koja nisu u normalnoj formi) nizom pravila izvođenja odgovarajućeg oblika iz dodatnih neterminalnih simbola. Na primer, pravilo izvođenja $S \rightarrow aSu$ se može zameniti pravilima $S \rightarrow W_1W_2$, $W_1 \rightarrow a$, $W_2 \rightarrow SW_3$ i $W_3 \rightarrow u$ uvođenjem novih neterminalnih simbola $W_1$, $W_2$ i $W_3$. Dakle, svi algoritmi za parsiranje sekvenci koji se definišu za kontekstno-slobodne gramatike u normalnoj formi Čomskog generalno su primenjivi na bilo koju kontekstno-slobodnu gramatiku.
-
 
 \subsection{Algoritmi SCFG modela}
 
@@ -373,9 +357,9 @@ Pandan Viterbijevom algoritmu za HMM modele je \textit{CYK (Cocke-Younger-Kasami
 
 \subsection{Modelovanje sekundarne strukture RNK}
 
-RNK molekuli se tipično sastoje od jednog lanca nukleotidnih baza koji može da se savija intramolekularno i formira segmente uparenih nukleotidnih baza. Bazni parovi $A-U$ i $G-C$ su kanonski (prema Votsonu i Kriku), ali je zastupljen i nekanonski par $U-G$. Struktura formiranih baznih parova naziva se \textit{sekundarna struktura RNK}. Na slici 6 prikazan je primer sekundarne strukture RNK molekula.
+RNK molekuli se tipično sastoje od jednog lanca nukleotidnih baza koji može da se savija intramolekularno i formira segmente uparenih nukleotidnih baza. Bazni parovi $A-U$ i $G-C$ su kanonski (prema Votsonu i Kriku), ali je zastupljen i nekanonski par $U-G$, a u nekim slučajevima su moguća i druga uparivanja. Struktura formiranih baznih parova naziva se \textit{sekundarna struktura RNK}. Na slici 6 prikazan je primer sekundarne strukture RNK molekula.
 
-Za RNK sekvence je karakteristicno to da homologne sekvence (istog porekla, sa zajedničkim evolutivnim pretkom) imaju sličnu sekundarnu strukturu, ali da njihove primarne strukture ne moraju imati značajne sličnosti. Drastične promene (mutacije) u primarnoj strukturi sekvenci se mogu tolerisati sve dok kompenzacione mutacije održavaju uparivanja baza na odgovarajućim pozicijama. To znači da sekundarna struktura RNK evoluira (mutira) sporije od primarne strukture, što modele sekundarne strukture čini podesnim za traženje homologija kod RNK sekvenci.
+Za RNK je karakteristicno to da homologne sekvence (istog porekla, sa zajedničkim evolutivnim pretkom) imaju sličnu sekundarnu strukturu, dok im primarne strukture ne moraju imati značajne sličnosti. Drastične promene (mutacije) u primarnoj strukturi sekvenci mogu se tolerisati sve dok kompenzacione mutacije održavaju uparivanja baza na odgovarajućim pozicijama. To znači da sekundarna struktura RNK evoluira (mutira) sporije od primarne strukture, što modele sekundarne strukture čini podesnim za traženje homologija kod RNK sekvenci.
 
 Bazni parovi se skoro uvek javljaju na ugnežđeni način u sekundarnoj strukturi RNK. Kako kontekstno-slobodne gramatike modeluju upravo ovakav tip međuzavisnosti, to čini SCFG modele prikladnim izborom za probabilističko modelovanje sekundarne strukture RNK.
 
@@ -392,25 +376,18 @@ Bazni parovi se skoro uvek javljaju na ugnežđeni način u sekundarnoj struktur
 
 Postoje različiti pristupi problemu modelovanja sekundarne strukture RNK sekvenci pomoću SCFG. Jedan mogući pristup je pronalaženje strukture sa najviše baznih parova. \textit{Algoritam Nussinov} i njemu odgovarajući SCFG model imaju upravo ovakav pristup. Mane ovog pristupa su to da ne uzima u obzir važne strukturne karakteristike kao što su preferencije ka određenim dužinama petlji ili preferencije ka određenim kombinacijama susednih baznih parova.
 
-Drugaciji pristup se zasniva na tome da intramolekularno savijanje RNK diktiraju biofizički procesi. Najsofisticiraniji metod za predviđanje sekundarne strukture pojedinačnih RNK sekvenci je \textit{Zukerov termodinamički model} i njemu odgovarajući SCFG model, koji pretpostavljaju da je optimalna struktura ona sa najnižom slobodnom energijom. I algoritam Nusinov i Zukerov algoritam izračunavaju optimane strukture rekurzivno, dinamičkim programiranjem.
+Drugaciji pristup se zasniva na tome da intramolekularno savijanje RNK diktiraju biofizički procesi. Najsofisticiraniji metod za predviđanje sekundarne strukture pojedinačnih RNK sekvenci je \textit{Zukerov termodinamički model} i njemu odgovarajuća SCFG, koji pretpostavljaju da je optimalna struktura ona sa najnižom slobodnom energijom. I algoritam Nusinov i Zukerov algoritam izračunavaju optimane strukture rekurzivno, dinamičkim programiranjem.
 
-Svi PCFG modeli su generativni po prirodi, što znači da modeluju zajedničku raspodelu $P(sekvenca, struktura)$. Očekivano bi (i intuitivno i formalno) bilo da se bolje ponaša diskriminativni model, koji neposredno maksimizuje uslovnu raspodelu $P(struktura | sekvenca)$. Ovakav model naziva se CPCFG i predstavlja logaritamsko-linearni model prema PCFG na isti način na koji je to CRF prema HMM, odnosno logistička regresija (naivni Markov) prema naivnom Bajesu. Ovakav model pridružuje atribute pravilima izvođenja (npr. prefiks podsekvence), čime opisuje bogatiji skup informacija. Više o ovakvom modelu može se videti u [4] i [5].
+Svi PCFG modeli su generativni po prirodi, što znači da modeluju zajedničku raspodelu sekvenci i struktura. Očekivano bi (i intuitivno i formalno) bilo da se bolje ponaša diskriminativni model, koji neposredno maksimizuje uslovnu raspodelu struktura pri sekvenci. Ovakav model naziva se CPCFG i predstavlja logaritamsko-linearni model prema PCFG na isti način na koji je to CRF prema HMM, odnosno logistička regresija (naivni Markov) prema naivnom Bajesu. Ovakav model pridružuje atribute (npr. prefiks podsekvence) pravilima izvođenja, čime opisuje bogatiji skup informacija. Više o ovakvom modelu može se videti u [4] i [5].
 
-Za modelovanje sekundarne strukture familija RNK sekvenci koriste se tzv. \textit{modeli kovarijacije}, kontekstno-slobodni pandan profilnih HMM modela. Za razliku od profilnih HMM modela koje karakteriše repetitivna linearna arhitektura, kovarijacioni modeli imaju repetitivnu drvoliku arhitekturu, koja je pogodna za modelovanje konsenzusnih sekundarnih stuktura familije RNK sekvenci. Više o ovoj i prethodnim vrstama modela se može pronaći u [1].
+Za modelovanje sekundarne strukture familija RNK sekvenci koriste se tzv. \textit{modeli kovarijacije}, kontekstno-slobodni pandan profilnih HMM modela. Za razliku od profilnih HMM modela koje karakteriše repetitivna linearna arhitektura, kovarijacioni modeli imaju repetitivnu drvoliku arhitekturu, koja je pogodna za modelovanje konsenzusnih sekundarnih stuktura familije RNK sekvenci. Više o ovom i ostalim modelima zasnovanim na PCFG može se pronaći u [1].
 
-Postoje i drugačiji pristupi za modelovanje sekundarne strukture RNK. Osnovna mana predstavljenih modela jeste u tome što nisu u stanju da modeluju neugnežđene interakcije između elemenata sekvenci (tzv. \textit{pseudočvorove}). Postoje određeni algoritmi dinamičkog programiranja koji mogu da predvide pojedine tipove pseudočvorova, ali po ceni znatno veće složenosti. Oni se stoga najčešće predviđaju metodama homologije, u koje spadaju i pomenuti kovarijansni modeli. Savremeni pristup problemu predikcije strukture jeste upotreba neuronskih mreža, posebno metoda dubokog učenja (konkretno mreže tipa Bi-LSTM). Ovakvi modeli su u stanju da uoče najrazličitije vrste međuzavisnosti. Uz pogodan izbor pretpostavki i dovoljno podataka za obučavanje, predviđanja su zadovoljavajuće tačna. Više o ovim modelima nalazi se u [6].
+Osnovna mana predstavljenih modela je u tome što nisu u stanju da modeluju neugnežđene interakcije između elemenata sekvenci (tzv. \textit{pseudočvorove}). Postoje određeni algoritmi dinamičkog programiranja koji mogu da predvide pojedine tipove pseudočvorova, ali po ceni znatno veće složenosti. Oni se stoga najčešće predviđaju metodama homologije (očekuje se postojanje pseudočvora na istom mestu u srodnim RNK), u koje spadaju i pomenuti kovarijansni modeli.
 
+Postoje i drugačiji pristupi modelovanju sekundarne strukture RNK, čiji se opisi mogu naći u [6]. Savremeni pristup ovom problemu zasnovan je na dubokom učenju, koje je u stanju da uoči najrazličitije vrste međuzavisnosti. Uz pogodan izbor pretpostavki i dovoljno podataka za obučavanje, predviđanja su zadovoljavajuće tačna. Dosad su se najbolje pokazale složene neuronske mreže tipa Bi-LSTM. U budućnosti se očekuje šira upotreba modela ove vrste.
 
 
 \section{Opis implementacije}
-
-
-
-
-
-
-
-
 
 \newpage 
 

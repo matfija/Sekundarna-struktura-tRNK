@@ -1,6 +1,5 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage[english,serbian]{babel}
-\usepackage{amsmath}
 
 \usepackage[]{algorithm2e}
 \SetKwInput{KwData}{Algorithm}
@@ -11,8 +10,9 @@
 \usepackage{geometry}
 \geometry{margin=2cm}
 
+\usepackage{url}
 \usepackage{subfig}
-
+\usepackage{amsmath}
 \usepackage{enumitem}
 
 \title{\textsc{Univerzitet u Beogradu \\ Matematički fakultet} \\ \vspace{2cm} {\small \textsc{Seminarski rad}} \\ \vspace{0.3cm} Grafovski probabilistički modeli za analizu i predviđanje struktura sekvenci i njihove primene u bioinformatici \\} 
@@ -296,7 +296,7 @@ Svako podstablo stabla parsiranja odgovara izvođenju nekog kontinualnog segment
 
 \subsection{Normalna forma kontekstno-slobodnih gramatika}
 
-Kako desna strana pravila izvođenja kod kontekstno-slobodnih gramatika može imati proizvoljnu formu, da bi se mogli formulisati opšti algoritmi za parsiranje sekvenci, potrebno je nametnuti neku vrstu normalne forme za pravila izvođenja. Jedna takva normalna forma je \textit{normalna forma Čomskog}, koja zahteva da su sva pravila izvođenja oblika $W_v \rightarrow W_yW_z$ ili $W_v \rightarrow a$. Svaka kontekstno-slobodna gramatika se može transformisati u normalnu formu zamenom pojedinačnih pravila izvođenja (koja nisu u normalnoj formi) nizom pravila izvođenja odgovarajućeg oblika iz dodatnih neterminalnih simbola. Na primer, pravilo izvođenja $S \rightarrow aSu$ se može zameniti pravilima $S \rightarrow W_1W_2$, $W_1 \rightarrow a$, $W_2 \rightarrow SW_3$ i $W_3 \rightarrow u$ uvođenjem novih neterminalnih simbola $W_1$, $W_2$ i $W_3$. Dakle, svi algoritmi za parsiranje sekvenci koji se definišu za kontekstno-slobodne gramatike u normalnoj formi Čomskog generalno su primenjivi na bilo koju kontekstno-slobodnu gramatiku.
+Kako desna strana pravila izvođenja kod kontekstno-slobodnih gramatika može imati proizvoljnu formu, da bi se mogli formulisati opšti algoritmi za parsiranje sekvenci, potrebno je nametnuti neku vrstu normalne forme za pravila izvođenja. Jedna takva normalna forma je \textit{normalna forma Čomskog}, koja zahteva da su sva pravila izvođenja oblika $W_v \rightarrow W_yW_z$ ili $W_v \rightarrow a$. Svaka kontekstno-slobodna gramatika se može transformisati u normalnu formu zamenom pojedinačnih pravila izvođenja (koja nisu u normalnoj formi) nizom pravila izvođenja odgovarajućeg oblika iz dodatnih neterminalnih simbola. Na primer, pravilo izvođenja $S \rightarrow aSu$ se može zameniti pravilima $S \rightarrow W_1W_2$, $W_1 \rightarrow a$, $W_2 \rightarrow SW_3$ i $W_3 \rightarrow u$ uvođenjem novih neterminalnih simbola $W_1$, $W_2$ i $W_3$. Dakle, svi algoritmi koji se definišu za kontekstno-slobodne gramatike u normalnoj formi Čomskog generalno su primenjivi na bilo koju kontekstno-slobodnu gramatiku. Naravno, algoritme je moguće prilagoditi tako da rade i bez normalizacije ulazne gramatike.
 
 \subsection{Algoritmi SCFG modela}
 
@@ -378,9 +378,9 @@ Postoje različiti pristupi problemu modelovanja sekundarne strukture RNK sekven
 
 Drugaciji pristup se zasniva na tome da intramolekularno savijanje RNK diktiraju biofizički procesi. Najsofisticiraniji metod za predviđanje sekundarne strukture pojedinačnih RNK sekvenci je \textit{Zukerov termodinamički model} i njemu odgovarajuća SCFG, koji pretpostavljaju da je optimalna struktura ona sa najnižom slobodnom energijom. I algoritam Nusinov i Zukerov algoritam izračunavaju optimane strukture rekurzivno, dinamičkim programiranjem.
 
-Svi PCFG modeli su generativni po prirodi, što znači da modeluju zajedničku raspodelu sekvenci i struktura. Očekivano bi (i intuitivno i formalno) bilo da se bolje ponaša diskriminativni model, koji neposredno maksimizuje uslovnu raspodelu struktura pri sekvenci. Ovakav model naziva se CPCFG i predstavlja logaritamsko-linearni model prema PCFG na isti način na koji je to CRF prema HMM, odnosno logistička regresija (naivni Markov) prema naivnom Bajesu. Ovakav model pridružuje atribute (npr. prefiks podsekvence) pravilima izvođenja, čime opisuje bogatiji skup informacija. Više o ovakvom modelu može se videti u [4] i [5].
+Svi PCFG modeli su generativni po prirodi, što znači da modeluju zajedničku raspodelu sekvenci i struktura. Očekivano bi (i intuitivno i formalno) bilo da se bolje ponaša diskriminativni model, koji neposredno maksimizuje uslovnu raspodelu struktura pri sekvenci. Ovakav model naziva se CPCFG i predstavlja logaritamsko-linearni model prema PCFG na isti način na koji je to CRF prema HMM, odnosno logistička regresija (naivni Markov) prema naivnom Bajesu. Ovakav model pridružuje atribute (npr. prefiks podsekvence) pravilima izvođenja, čime pokriva bogatiji skup informacija. Više o ovakvom modelu može se videti u [4] i [5].
 
-Za modelovanje sekundarne strukture familija RNK sekvenci koriste se tzv. \textit{modeli kovarijacije}, kontekstno-slobodni pandan profilnih HMM modela. Za razliku od profilnih HMM modela koje karakteriše repetitivna linearna arhitektura, kovarijacioni modeli imaju repetitivnu drvoliku arhitekturu, koja je pogodna za modelovanje konsenzusnih sekundarnih stuktura familije RNK sekvenci. Više o ovom i ostalim modelima zasnovanim na PCFG može se pronaći u [1].
+Za modelovanje sekundarne strukture familija RNK sekvenci koriste se tzv. \textit{modeli kovarijacije}, kontekstno-slobodni pandan profilnih HMM modela. Za razliku od profilnih HMM modela, koje karakteriše repetitivna linearna arhitektura, kovarijacioni modeli imaju repetitivnu drvoliku arhitekturu, koja je pogodna za modelovanje konsenzusnih sekundarnih stuktura familije RNK sekvenci. Više o ovom i ostalim modelima zasnovanim na PCFG može se pronaći u [1].
 
 Osnovna mana predstavljenih modela je u tome što nisu u stanju da modeluju neugnežđene interakcije između elemenata sekvenci (tzv. \textit{pseudočvorove}). Postoje određeni algoritmi dinamičkog programiranja koji mogu da predvide pojedine tipove pseudočvorova, ali po ceni znatno veće složenosti. Oni se stoga najčešće predviđaju metodama homologije (očekuje se postojanje pseudočvora na istom mestu u srodnim RNK), u koje spadaju i pomenuti kovarijansni modeli.
 
@@ -389,15 +389,43 @@ Postoje i drugačiji pristupi modelovanju sekundarne strukture RNK, čiji se opi
 
 \section{Opis implementacije}
 
+Kako je već napomenuto, RNK se uvija i intramolekularno formira segmente uparenih nukleobaza. Posebno je zanimljiva transportna RNK, sa ulogom u translaciji, a koja ima karakterističnu sekundarnu strukturu u obliku deteline sa tri lista. Listove (petlje, \textit{loop}) čine neuparene baze, dok se kao veza između njih nalaze četiri zavojnice (drške, \textit{stem}) i umetnuti nukleotidi. Na drugom listu, otprilike u sredini sekvence, nalazi se antikodon aminokiseline koja se prenosi.
+
+U okviru rada na temi, implementirane su tri PCFG za potrebe predviđanja sekundarne strukture tRNK. Prva je gramatika tipa Nusinov, sa pravilima izvođenja $S \rightarrow dSd$ (uparivanje) $| SS$ (grananje) $| s$ (neuparena baza). Ona maksimizuje broj uparivanja, što je konceptualno opravdano. To, ipak, ne odgovara stvarnosti, pa ova gramatika ima samo teorijski značaj.
+
+Realizovana je i gramatika KH-99, sa pravilima izvođenja $S \rightarrow LS$ (nizanje elemenata) $| L$ (poslednji element), $L \rightarrow s$ (neuparena baza) $| dFd$ (početak zavojnice), $F \rightarrow dFd$ (nastavak zavojnice) $| LS$ (unutrašnjost zavojnice). Ona je složenija utoliko što drugačije ocenjuje početak i nastavak zavojnice. Uspešno predviđa opštu formu uvijanja, ali ipak nedovoljno tačno.
+
+Naposletku je implementiran svojevrsni model kovarijacije, koji eksploatiše postojanje dobro očuvanog skeleta strukture u familiji koja se modeluje, što je u ovom slučaju familija tRNK. U njoj, naime, postoje tačno tri važne petlje, tačno četiri zavojnice i još neki dodatni elementi, ali takođe fiksnog sadržaja. Ovakva gramatika se, očekivano, ponaša najbolje, budući da poznaje najviše konteksta. Ona je, međutim, najsloženija i ograničena strogo na rad sa tRNK.
+
+Skup podataka preuzet je iz baze tRNAdb, koja čuva sekvence tRNK sa pridruženim sekundarnim strukturama, i to u sekvencijalnom formatu tačka-zagrada. Nakon filtriranja, u skupu su ostale 432 sasvim korektne sekvence, koje su iskorišćene nadalje u obučavanju i proveri implementiranih gramatika. Predstavljene gramatike trenirane su na jednom delu skupa, koji je prethodno morao biti transformisan u odgovarajući skup stabala izvođenja, što je i učinjeno tehnikom rekurzivnog spusta. Gotovi modeli iskorišćeni su za predviđanje sekundarne strukture drugog dela podataka (ukupno 108 test instanci), što je poslužilo za evaluaciju modela.
+
+Rezultati su upoređeni kako vizuelno, tako i upotrebom numeričkih mera uspešnosti karakterističnih za istraživanje podataka: udeo tačno predviđenih oznaka i sasvim tačnih struktura, odziv, preciznost. Druge dve mere dobijene su tako što je problem predviđanja sekundarne strukture shvaćen kao problem pretraživanja informacija. U tom slučaju, informacijom (dokumentom) smatra se podatak da su dve baze uparene. Drugim rečima, informacija je par $(i, j)$, pri podrazumevanom uslovu $i < j$, što označava da su uparene baze na pozicijama $i$ i $j$.
+
+\begin{table}[h!]
+    \centering
+    \caption{Obučeni modeli i njihove mere uspešnosti}
+    \begin{tabular}{c c | c c | c c}
+        \multicolumn{2}{c}{Gramatika} & \multicolumn{2}{|c|}{Udeo tačnih} & \multicolumn{2}{c}{Uparivanja} \\
+        Tip & Parametri & Oznake & Strukture & Odziv & Preciznost \\ \hline
+        Nussinov & 11 & 48\% & 0\% & 27\% & 18\% \\
+        KH-99 & 19 & 89\% & 38\% & 86\% & 86\% \\
+        CM & 26 & 96\% & 54\% & 93\% & 93\%
+  \end{tabular}
+\end{table}
+
+U tabeli 1 predstavljeni su svi modeli i njihova uspešnost na skupu za proveru. Primera radi, može se primetiti da model kovarijacije sasvim tačno predviđa više od pola (54\%) struktura, dok su mu ostale mere blizu maksimuma (93\%). Uočljivo je i da znatno brže raste broj parametara od udela pogodaka, pa verovatno ne bi bilo preterano efikasno dalje usložnjavati modele. Svi izneseni zaključci u saglasnosti su sa rezultatima iz srodne literature, poput [7]. Celokupna implementacija, sa detaljnim objašnjenjima, podacima i gramatikama, može se naći na [8].
+
 \newpage 
 
 \begin{thebibliography}{9}
 \bibitem{} R. Durbin, S. Eddy, A. Krogh, G. Mitchison (1998) \textit{Biological Sequence Analysis: Probabilistic Models of Proteins and Nucleic Acids}. Cambridge University Press.
-\bibitem{} Charles Sutton and Andrew McCallum (2007) \textit{An Introduction to Conditional Random Fields for Relational Learning}. Chapter in book: \textit{Introduction to Statistical Relational Learning}. The MIT Press.
+\bibitem{} Charles Sutton, Andrew McCallum (2007) \textit{An Introduction to Conditional Random Fields for Relational Learning}. Chapter in book: \textit{Introduction to Statistical Relational Learning}. The MIT Press.
 \bibitem{} Daphne Koller, Nir Friedman (2009) \textit{Probabilistic Graphical Models: Principles and Techniques -- Adaptive Computation and Machine Learning}. The MIT Press.
-\bibitem{} Do, C.B., Woods,D.A., and Batzoglou, S. (2006) \textit{CONTRAfold: RNA Secondary Structure Prediction without Energy-Based Models}. Bioinformatics, 22(14)
-\bibitem{} Charles Sutton and Andrew McCallum (2004) \textit{Conditional Probabilistic Context-Free Grammars}.
+\bibitem{} Do C.B., Woods D.A., Batzoglou S. (2006) \textit{CONTRAfold: RNA Secondary Structure Prediction without Energy-Based Models}. Bioinformatics, 22(14)
+\bibitem{} Charles Sutton, Andrew McCallum (2004) \textit{Conditional Probabilistic Context-Free Grammars}.
 \bibitem{} Zhao Q, Zhao Z, Fan X, Yuan Z, Mao Q, et al. (2021) \textit{Review of machine learning methods for RNA secondary structure prediction}. PLOS Computational Biology 17(8).
+\bibitem{} Dowell R.D., Eddy S.R. (2004) \textit{Evaluation of several lightweight stochastic context-free grammars for RNA secondary structure prediction}. BMC Bioinformatics 5, 71
+\bibitem{} Lazar Vasović, Nevena Ćirić (2022) \textit{Sekundarna struktura tRNK}. GitHub: \url{https://github.com/matfija/Sekundarna-struktura-tRNK}
 \end{thebibliography}
 
 \end{document}

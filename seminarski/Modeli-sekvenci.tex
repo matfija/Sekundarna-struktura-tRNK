@@ -49,7 +49,7 @@ Beograd, 2022.
 
 Probabilistički modeli se često mogu predstaviti grafovima koji opisuju međusobne zavisnosti između slučajnih promenljivih koje se modeluju. Kako su biološki procesi po prirodi probabilistički, mnogi grafovski probabilistički modeli pronalaze primenu u bioinformatici.
 
-Prema tipu raspodele koju modeluju i strukturi grafa, mogu se uočiti različite vrste grafovskih probabilističkih modela. Na slici 1 prikazano je nekoliko vrsta grafovskih probabilistickih modela koji imaju primenu u bioinformatici i njihovi odnosi u nekoliko aspekata.
+Prema tipu raspodele koju modeluju i strukturi grafa, mogu se uočiti različite vrste grafovskih probabilističkih modela. Na slici 1 prikazano je nekoliko vrsta grafovskih probabilističkih modela koji imaju primenu u bioinformatici i njihovi odnosi u nekoliko aspekata.
 
 \begin{figure}[h!]
     \centering
@@ -60,7 +60,7 @@ Prema tipu raspodele koju modeluju i strukturi grafa, mogu se uočiti različite
     \vspace{0.3cm}
 \end{figure}
 
-Osnovna podela probabilističkih modela je prema tipu raspodele koju modeluju -- na \textit{generativne} i \textit{diskriminativne modele}. Generativni probabilistički modeli modeluju zajedničku raspodelu svih slučajnih promenljivih od interesa. Diskriminativni probabilisticki modeli modejlu uslovnu raspodelu izlaznih (ciljnih) slučajnih promenljivih za date vrednosti ulaznih (opaženih) slucajnih promenljivih.
+Osnovna podela probabilističkih modela je prema tipu raspodele koju modeluju -- na \textit{generativne} i \textit{diskriminativne modele}. Generativni probabilistički modeli modeluju zajedničku raspodelu svih slučajnih promenljivih od interesa. Diskriminativni probabilistički modeli modeluju uslovnu raspodelu izlaznih (ciljnih) slučajnih promenljivih za date vrednosti ulaznih (opaženih) slucajnih promenljivih.
 
 Grafovski probabilistički modeli određuju familije raspodela verovatnoće koje se faktorišu prema odgovarajućem grafu. U zavisnosti od toga da li se radi o usmerenom ili neusmerenom grafu, imamo podelu na \textit{Bajesovske mreže} i \textit{Markovljeve mreže}. Ove dve vrste modela razlikuju se u tipu međuzavisnosti između slučajnih promenljivih koje mogu da opišu. 
 
@@ -78,7 +78,7 @@ Dalje će detaljnije biti razmatrani samo sekvencijalni grafovski probabilistič
 
 \section{Sistematizacija modela struktura sekvenci}
 
-Najjednostavnija struktura sekvenci podrazumeva postojanje susednih zavisnosti između elemenata sekvenci -- vrednost $i$-tog elementa sekvence zavisi od vrednosti $(i-1)$-og elementa sekvence. Kompleksnije strukture sekvenci uključuju dugoročne zavisnosti između pojedinačnih elemenata sekvenci, zavisnosti jednog elemenata od više prethodnih elementa sekvenci, kao i njihove kombinacije.
+Najjednostavnija struktura sekvenci podrazumeva postojanje susednih zavisnosti između elemenata sekvenci -- vrednost $i$-tog elementa sekvence zavisi od vrednosti $(i-1)$-og elementa sekvence. Kompleksnije strukture sekvenci uključuju dugoročne zavisnosti između pojedinačnih elemenata sekvenci, zavisnosti jednog elemenata od više prethodnih elemenata sekvenci, kao i njihove kombinacije.
 
 Opštu teoriju modelovanja struktura sekvenci formalizovali su računarski lingvisti kroz \textit{teoriju formalnih jezika i gramatika}.  Formalne gramatike su razvijene u mahom neuspelom pokušaju da precizno okarakterišu strukturu prirodnih jezika. Kasnije su postale važne u teorijskom računarstvu zato što se programski jezici, za razliku od prirodnih jezika, mogu precizno okarakterisati pomoću konačnog skupa pravila. Danas formalne gramatike imaju široku primenu u različitim oblastima, između ostalog i u molekularnoj biologiji za analizu bioloških sekvenci.
 
@@ -88,7 +88,7 @@ Formalne gramatike se definišu konačnim skupom simbola i pravila izvođenja $\
  
 Čomski definiše četiri tipa strukture pravila izvođenja gramatika. Rezultujuće četiri klase formalnih gramatika, koje se sastoje samo od pravila izvođenja odgovarajućeg tipa, čine hijerarhiju poznatu kao \textit{hijerarhija Čomskog}. Na slici 2 prikazane su ove četiri klase gramatika, ugnežđene prema restriktivnosti njihovih pravila izvođenja, a samim tim i odnosu skupova jezika koje te gramatike mogu da opišu. Takođe, ova hijerarhija odražava mogućnost gramatika da opišu različite vrste međuzavisnosti elemenata sekvenci, odnosno struktura sekvenci.
 
-Koristićemo sledeće oznake: $W$ za bilo koji neterminalni simbol, $a$ za bilo koji terminalni simbol, $\alpha$ i $\gamma$ za bilo koji niz neterminalnih i/ili terminalnih simbola, uključujući i prazan niz, a $\beta$ za bilo koji neprazan niz neterminalnih i/ili terminalnih simbola.
+Koristićemo sledeće oznake: $W$ za bilo koji neterminalni simbol, $a$ za bilo koji terminalni simbol, $\alpha$ i $\gamma$ za bilo koji niz neterminalnih i/ili terminalnih simbola, uključujući i prazan niz (on se označava kao $\epsilon$), a $\beta$ za bilo koji neprazan niz neterminalnih i/ili terminalnih simbola.
 
 \begin{figure}[h!]
     \centering
@@ -101,10 +101,10 @@ Koristićemo sledeće oznake: $W$ za bilo koji neterminalni simbol, $a$ za bilo 
 \noindent \textbf{Regularne gramatike} \hspace{0.3cm} Dozvoljena su samo pravila izvođenja oblika $W \rightarrow aW$ ili $W \rightarrow a$. Na osnovu strukture pravila izvođenja sledi da regularne gramatike generišu (izvode) sekvence isključivo sleva nadesno. To su najrestriktivnije i najjednostavnije gramatike koje mogu da opišu samo najjednostavnije međuzavisnosti elemenata sekvenci -- zavisnost sledećeg elementa od prethodnog. 
 
 \vspace*{0.2cm}
-\noindent \textbf{Kontekstno-slobodne gramatike} \hspace{0.3cm} Sva pravila izvođenja su oblika $W \rightarrow \beta$. Leva strana pravila izvođenja mora biti isključivo jedan neterminalni simbol, dok desna strana pravila nema restrikcija. Desna strana stoga može da generiše korelisani par terminalnih simbola (elemenata sekvence) iz jednog neterminalnog simbola, za razliku od regularnih gramatika kod kojih se par terminalnih simbola mora generisati nezavisno iz dva koraka (pravila izvođenja). Drugim rečima, u odnosu na regularne gramatike, kontekstno-slobodne gramatike dozvoljavaju dodatna pravila koja omogućavaju modelovanje ugnežđenih, dugoročnih zavisnosti (parova) elemenata sekvenci.
+\noindent \textbf{Kontekstno-slobodne gramatike} \hspace{0.3cm} Sva pravila izvođenja su oblika $W \rightarrow \beta$. Leva strana pravila izvođenja mora biti isključivo jedan neterminalni simbol, dok je desna strana pravila neprazni niz simbola\footnote{Iako Čomski u teoriji ne predviđa prazna izvođenja na ovom nivou hijerarhije, u praksi su ona zastupljena, jer ih se uvek može osloboditi. Stoga nije neispravno reći i da su sva pravila izvođenja oblika $W \rightarrow \alpha$, odnosno da desna strana nema restrikcija. Slično važi za regularne gramatike, kod kojih se može dozvoliti i $W \rightarrow \epsilon$.}. Desna strana stoga može da generiše korelisani par terminalnih simbola (elemenata sekvence) iz jednog neterminalnog simbola, za razliku od regularnih gramatika kod kojih se par terminalnih simbola mora generisati nezavisno iz dva koraka (pravila izvođenja). Drugim rečima, u odnosu na regularne gramatike, kontekstno-slobodne gramatike dozvoljavaju dodatna pravila koja omogućavaju modelovanje ugnežđenih, dugoročnih zavisnosti (parova) elemenata sekvenci.
 
 \vspace*{0.2cm}
-\noindent \textbf{Kontekstno-osetljive gramatike} \hspace{0.3cm} Pravila izvođenja su oblika $\alpha_1 W \alpha_2 \rightarrow \alpha_1 \beta \alpha_2$. Dakle, izvođenja neterminalnih simbola ($W$) zavise od njegovog konteksta ($\alpha_1$ i $\alpha_2$). To je jednako zahtevu da desna strana pravila sadrži najmanje onoliko simbola koliko i leva strana, što znači da kontekstno-osetljive gramatike nikada ne skraćuju prethodno izvedenu sekvencu. Na osnovu prethodnog, kontekstno-osetljive gramatike dozvoljavaju pravila izvođenja oblika $AB \rightarrow BA$\footnote{Pravilo $AB \rightarrow BA$ može se zameniti nizom pravila oblika $\alpha_1 W \alpha_2 \rightarrow \alpha_1 \beta \alpha_2$: $AB \rightarrow XB$, $XB \rightarrow XY$, $X \rightarrow B$, $Y \rightarrow A$. Ako se simboli $X$ i $Y$ ne pojavljuju u drugim pravilima izvođenja, dobija se ekvivalentna gramatika kao ona koja sadrži pravilo $AB \rightarrow BA$.}. Pravila izvođenja ovog oblika se nazivaju \textit{pravila preuređivanja} i ona omogućavaju ukrštanje interakcija između parova simbola terminalnih simbola. Drugim rečima, u odnosu na niže pozicionirane gramatike, kontekstno-osetljive dozvoljavaju dodatna pravila koja omogućavaju modelovanje svih vrsta zavisnosti parova elemenata sekvenci.
+\noindent \textbf{Kontekstno-osetljive gramatike} \hspace{0.3cm} Pravila izvođenja su oblika $\alpha_1 W \alpha_2 \rightarrow \alpha_1 \beta \alpha_2$. Dakle, izvođenja neterminalnih simbola ($W$) zavise od njegovog konteksta ($\alpha_1$ i $\alpha_2$). To je jednako zahtevu da desna strana pravila sadrži najmanje onoliko simbola koliko i leva strana, što znači da kontekstno-osetljive gramatike nikada ne skraćuju prethodno izvedenu sekvencu. Na osnovu prethodnog, kontekstno-osetljive gramatike dozvoljavaju pravila izvođenja oblika $AB \rightarrow BA$\footnote{Pravilo $AB \rightarrow BA$ može se zameniti nizom pravila oblika $\alpha_1 W \alpha_2 \rightarrow \alpha_1 \beta \alpha_2$: $AB \rightarrow XB$, $XB \rightarrow XY$, $X \rightarrow B$, $Y \rightarrow A$. Ako se simboli $X$ i $Y$ ne pojavljuju u drugim pravilima izvođenja, dobija se ekvivalentna gramatika kao ona koja sadrži pravilo $AB \rightarrow BA$.}. Pravila izvođenja ovog oblika se nazivaju \textit{pravila preuređivanja} i ona omogućavaju ukrštanje interakcija između parova terminalnih simbola. Drugim rečima, u odnosu na niže pozicionirane gramatike, kontekstno-osetljive dozvoljavaju dodatna pravila koja omogućavaju modelovanje svih vrsta zavisnosti parova elemenata sekvenci.
 
 \vspace*{0.2cm}
 \noindent \textbf{Gramatike bez restrikcija} \hspace{0.3cm} Ni leva ni desna strana pravila izvođenja nemaju restrikcije, odnosno oblika su $\alpha_1 W  \alpha_2 \rightarrow \gamma$. 
@@ -117,15 +117,15 @@ Svaka od klasa formalnih gramatika ima odgovarajući apstraktni računarski form
 
 \vspace*{0.2cm}
 \noindent \textbf{Potisni automati} \hspace{0.3cm} Za razliku od konačnih automata, koji ne zahtevaju nikakvu memoriju osim za praćenje trenutnog stanja, potisni automati imaju (ograničenu) pomoćnu memoriju koja funcioniše po principu steka (po čemu je automat i dobio ime). Parsiranje sekvence se vrši tako što se na stek stavi početni neterminalni simbol gramatike. U svakom narednom koraku skida se po jedan simbol sa steka i u zavisnosti od toga da li je neterminalni ili terminalini simbol u pitanju, vrši se jedna od akcija. Za neterminalni simbol traži se pravilo izvođenja koje se može primeniti nad njim u skladu sa trenutnom pozicijom u parsiranju sekvence i na stek se stavlja desna strana odgovarajućeg pravila izvođenja\footnote{Simboli desne stane izvođenja se na stek slažu počev od najdešnjeg simbola.}. A ako se radi o terminalnom simbolu, poredi se sa sledećim simbolom sekvence i ako se slažu napreduje se u parsiranju sekvence, a u suprotnom se prekida parsiranje i odbacuje sekvenca.
-Kako ovakav način parsiranja sekvence omogućava uparivanje elemenata sekvence, jasno je da je klasa jezika koje prepoznaje potisni automat ekvivalentna je klasi jezika koje generišu kontekstno-slobodne gramatike.
+Kako ovakav način parsiranja sekvence omogućava uparivanje elemenata sekvence, jasno je da je klasa jezika koje prepoznaje potisni automat ekvivalentna klasi jezika koje generišu kontekstno-slobodne gramatike.
 
 \vspace*{0.2cm}
-\noindent \textbf{Linearno-ograničeni automati} \hspace{0.3cm} Prepoznaju kontekstno-osetljive jezike, tj. klasa jezika koje prepoznaje linearno-ograničeni automat ekvivalentna je klasi jezika koje generišu kontekstno-osetljive gramatike. Kako su kontekstno-osetljive gramatike ograničene tako da leva strana pravila izvođenja ne može biti duža od desne strane, postoji konačan broj mogućih izvođenja za datu sekvencu\footnote{Nijedan međuproizvod izvođenja ne može biti duži od same sekvence.}. Linearno-ograničeni automat je mehanizam za sistematski pretragu unazad kroz sva moguća izvođenja date sekvence sve dok se ili ne dostigne početni neterminalni simbol gramatike ili dok se ne iscrpe sva moguće izvođenja (bez pronalaženja validnog izvođenja). To je apstraktna mašina koja se sastoji od trake podeljene na ćelije (koja predstavlja memoriju mašine) i glave koja može da čita/piše po ćelijama i da se pomera duž trake. Dužina trake je linearno ograničena dužinom sekvence koja se parsira, s obzirom da međuproizvodi izvođenja ne mogu biti duži od date sekvence.
+\noindent \textbf{Linearno-ograničeni automati} \hspace{0.3cm} Prepoznaju kontekstno-osetljive jezike, tj. klasa jezika koje prepoznaje linearno-ograničeni automat ekvivalentna je klasi jezika koje generišu kontekstno-osetljive gramatike. Kako su kontekstno-osetljive gramatike ograničene tako da leva strana pravila izvođenja ne može biti duža od desne strane, postoji konačan broj mogućih izvođenja za datu sekvencu\footnote{Nijedan međuproizvod izvođenja ne može biti duži od same sekvence.}. Linearno-ograničeni automat je mehanizam za sistematsku pretragu unazad kroz sva moguća izvođenja date sekvence sve dok se ili ne dostigne početni neterminalni simbol gramatike ili dok se ne iscrpe sva moguće izvođenja (bez pronalaženja validnog izvođenja). To je apstraktna mašina koja se sastoji od trake podeljene na ćelije (koja predstavlja memoriju mašine) i glave koja može da čita/piše po ćelijama i da se pomera duž trake. Dužina trake je linearno ograničena dužinom sekvence koja se parsira, s obzirom da međuproizvodi izvođenja ne mogu biti duži od date sekvence.
 
 \vspace*{0.2cm}
 \noindent \textbf{Tjuringova mašina} \hspace{0.3cm} Ekvivalent su gramatikama bez restrikcija. Tjuringova mašina je suštinski isto što i linearno-ograničeni automat sa neograničenom dužinom trake (memorije).
 
-\subsection{Stohasticke (probabilističke) gramatike}
+\subsection{Stohastičke (probabilističke) gramatike}
 
 Svaka od formalnih gramatika iz hijerarhije Čomskog može se koristiti u stohastičkom obliku kao osnova za probabilističke modele struktura sekvenci. Stohastičke gramatike generišu neku sekvencu $x$ sa nekom verovatnoćom $P(x)$, dok nestohastičke gramatike ili mogu da generišu sekvencu $x$ ili ne. Drugim rečima, stohastičke gramatike definišu raspodelu verovatnoća nad sekvencama $x$, tako da $\sum_x P(x) = 1$.
 
@@ -153,7 +153,6 @@ Na slici 3 data je tabela koja sistematizuje klase gramatika, njima odgovarajuć
 
 HMM se najčešće predstavlja i definiše kao probabilistički konačni automat, odnosno graf koji se sastoji od konačnog skupa čvorova (stanja) koja su međusobno povezana granama (prelazima) sa pridruženim verovatnoćama. Iz jednog stanja se sa određenom verovatnoćom može preći u drugo stanje, a iz svakog od stanja se po dolasku emituje simbol sekvence sa određenom verovatnoćom. Kako se iz svakog stanja u opštem slučaju može emitovati bilo koji od simbola (sa različitim verovatnoćama), znajući sekvencu nije moguće odrediti koji simbol je generisan iz kog stanja. Otuda potiče naziv modela -- sekvenca stanja iz kojih je generisana sekvenca simbola je \textit{skrivena}.
 
-\newpage
 \noindent Dakle, HMM je određen grafom (skupom stanja i prelaza) i sledećim skupom parametara:
 
 \begin{itemize}[itemsep=-0.03ex]
@@ -164,11 +163,11 @@ HMM se najčešće predstavlja i definiše kao probabilistički konačni automat
 \vspace*{-0.1cm}
 \end{itemize}
 
-\noindent Kako bi se jasnije razlikovalo kada se govori o sekvencama simbola a kada o sekvencama stanja, sekvence simbola se radije nazivaju \textit{putanjama} (kroz graf stanja), dok se sekvence simbola nazivaju kraće samo \textit{sekvencama}. Neka su sa $x_i$ označeni elementi sekvenca, a sa $\pi_i$ elementi putanja, i neka je sa $0$ označeno početno stanje modela (automata). Tada se zajednička raspodela sekvence $x$ i njoj odgovarajuće putanje $\pi$ može dobiti kao
+\noindent Kako bi se jasnije razlikovalo kada se govori o sekvencama simbola a kada o sekvencama stanja, sekvence stanja se radije nazivaju \textit{putanjama} (kroz graf stanja), dok se sekvence simbola nazivaju kraće samo \textit{sekvencama}. Neka su sa $x_i$ označeni elementi sekvenca, a sa $\pi_i$ elementi putanja, i neka je sa $0$ označeno početno stanje modela (automata). Tada se zajednička raspodela sekvence $x$ i njoj odgovarajuće putanje $\pi$ može dobiti kao
 
 $$P(x, \pi) = a_{0\pi_1}\prod_{i=1}^{L} e_{\pi_i}(x_i) a_{\pi_i\pi_{i+1}}$$ 
 
-\noindent gde je $L$ dužina date sekvence. Kako putanja u većini slučajeva nije poznata, a upravo je ona od interesa\footnote{Stanja modela su ta koja opisuju strukturu sekvence u nekom smislu (unutar/van CpG ostrva, fer/nefer kockica, match/insetrion/deletion poravnanje elemenata dve sekvence itd.).}, od svih mogućih putanja najsmislenije je odabrati onu optimalnu -- za koju se dobija najveća vrednost zajedničke verovatnoće 
+\noindent gde je $L$ dužina date sekvence. Kako putanja u većini slučajeva nije poznata, a upravo je ona od interesa\footnote{Stanja modela su ta koja opisuju strukturu sekvence u nekom smislu (unutar/van CpG ostrva, fer/nefer kockica, match/insertion/deletion poravnanje elemenata dve sekvence itd.).}, od svih mogućih putanja najsmislenije je odabrati onu optimalnu -- za koju se dobija najveća vrednost zajedničke verovatnoće 
 
 $$\pi^* = \underset{\pi}{argmax} P(x, \pi)$$
 
@@ -176,7 +175,7 @@ $$\pi^* = \underset{\pi}{argmax} P(x, \pi)$$
 
 $$v_l(i) = e_l(x_i)\underset{k}{max}(v_k(i-1)a_{kl})$$   
 
-\noindent Kako svaka putanja podrazumevano kreće iz stanja $0$ (početno stanje), tada je $v_0(0) = 1$ i $v_k(0) = 0$ za sva stanja $k \neq 0$ (izlazak iz rekurzije). Čuvanjem pokazivača unazad, optimalna putanja se može dobiti pomoću backtracking-a. Kompletan algoritam je prikazan u nastavku.
+\noindent Kako svaka putanja podrazumevano kreće iz stanja $0$ (početno stanje), tada je $v_0(0) = 1$ i $v_k(0) = 0$ za sva stanja $k \neq 0$ (izlazak iz rekurzije). Čuvanjem pokazivača unazad, optimalna putanja se može dobiti pomoću bektrekinga. Kompletan algoritam je prikazan u nastavku.
 
 \begin{algorithm}[h!] 
  \KwData{\textbf{Viterbi}}
@@ -191,6 +190,8 @@ $$v_l(i) = e_l(x_i)\underset{k}{max}(v_k(i-1)a_{kl})$$
  \vspace*{0.2cm}
  Traceback ($i=L, ..., 1)$: \hspace{0.05cm}$\pi_{i-1}^* = ptr_i(\pi_i^*)$           
 \end{algorithm}
+
+\newpage
 
 Ukoliko želimo da odredimo kolika je verovatnoća da neka sekvenca $x$ bude generisana datim modelom, tada treba uzeti u obzir sve moguće putanje
 
@@ -244,7 +245,7 @@ A_{kl} = \sum_{j}\frac{1}{P(x^j)}\sum_{i}f_k^j(i)a_{kl}e_l(x_{i+1}^j)b_l^j(i+1)
 E_k(b) = \sum_{j}\frac{1}{P(x^j)}\sum_{i|x_i^j=b}f_k^j(i)b_k^j(i)
 \end{equation}
 
-\noindent Na osnovu ovako dobijenih vrednosti $A_{kl}$ i $E_k(b)$ izračunavaju se nove ocene parametametara modela pomoću jednačina (1). Iteriranje se vrši sve dok se ne ispuni neki (zadati) kriterijum zaustavljanja ili dok se ne dostigne neki unapred određeni broj iteracija. Tipično se za kriterijum zaustavljanja uzima kada promena vrednosti parametara modela iz iteracije u iteraciju postane manja od nekog unapred zadatog praga.
+\noindent Na osnovu ovako dobijenih vrednosti $A_{kl}$ i $E_k(b)$ izračunavaju se nove ocene parametara modela pomoću jednačina (1). Iteriranje se vrši sve dok se ne ispuni neki (zadati) kriterijum zaustavljanja ili dok se ne dostigne neki unapred određeni broj iteracija. Tipično se za kriterijum zaustavljanja uzima kada promena vrednosti parametara modela iz iteracije u iteraciju postane manja od nekog unapred zadatog praga.
 Kompletan algoritam je prikazan u nastavku:
 
 \begin{algorithm}[h!] 
@@ -319,7 +320,7 @@ Dakle, algoritam iznutra izračunava ukupnu verovatnoću parsiranja (izvođenja)
 \end{figure}
 
 
-Algoritmi iznutra i spolja za SCFG modele su pandan algoritmima unapred i unazad za HMM modele. Kao što je Baum-Welch algoritam za određivanje optimalnih parametara HMM modela definisan pomoću algoritama unapred i unazad, slično se pomoću algoritama iznutra i spolja definiše algoritam za određivanje optimalnih parametara SCFG modela. Zbog svoje kompleksnosti i rogobatnog zapisa, ovaj algoritam neće biti prikazan na ovom mestu.
+Algoritmi iznutra i spolja za SCFG modele su pandan algoritmima unapred i unazad za HMM modele. Kao što je Baum-Welch algoritam za određivanje optimalnih parametara HMM modela definisan pomoću algoritama unapred i unazad, slično se pomoću algoritama iznutra i spolja definiše algoritam za određivanje optimalnih parametara SCFG modela. Zbog svoje kompleksnosti i sličnosti već poznatom algoritmu, ovaj algoritam nije prikazan, ali se u svojoj punoj formi može naći u [1].
 
 \newpage
 
@@ -363,15 +364,13 @@ Za RNK je karakteristicno to da homologne sekvence (istog porekla, sa zajedničk
 
 Bazni parovi se skoro uvek javljaju na ugnežđeni način u sekundarnoj strukturi RNK. Kako kontekstno-slobodne gramatike modeluju upravo ovakav tip međuzavisnosti, to čini SCFG modele prikladnim izborom za probabilističko modelovanje sekundarne strukture RNK.
 
-\newpage
-
 \begin{figure}[h!]
     \centering
     \captionsetup{width=0.7\linewidth}
     \vspace{-0.15cm}
     \subfloat{{\includegraphics[width=14cm]{RNA}}}
     \vspace{0.1cm}
-    \caption{Primer sekundarne strukture RNK zajedno sa uočenim različitim elemenatima te strukture koje treba modelovati}
+    \caption{Primer sekundarne strukture RNK zajedno sa uočenim različitim elementima te strukture koje treba modelovati}
 \end{figure}
 
 Postoje različiti pristupi problemu modelovanja sekundarne strukture RNK sekvenci pomoću SCFG. Jedan mogući pristup je pronalaženje strukture sa najviše baznih parova. \textit{Algoritam Nussinov} i njemu odgovarajući SCFG model imaju upravo ovakav pristup. Mane ovog pristupa su to da ne uzima u obzir važne strukturne karakteristike kao što su preferencije ka određenim dužinama petlji ili preferencije ka određenim kombinacijama susednih baznih parova.
@@ -386,12 +385,11 @@ Osnovna mana predstavljenih modela je u tome što nisu u stanju da modeluju neug
 
 Postoje i drugačiji pristupi modelovanju sekundarne strukture RNK, čiji se opisi mogu naći u [6]. Savremeni pristup ovom problemu zasnovan je na dubokom učenju, koje je u stanju da uoči najrazličitije vrste međuzavisnosti. Uz pogodan izbor pretpostavki i dovoljno podataka za obučavanje, predviđanja su zadovoljavajuće tačna. Dosad su se najbolje pokazale složene neuronske mreže tipa Bi-LSTM. U budućnosti se očekuje šira upotreba modela ove vrste.
 
-
 \section{Opis implementacije}
 
 Kako je već napomenuto, RNK se uvija i intramolekularno formira segmente uparenih nukleobaza. Posebno je zanimljiva transportna RNK, sa ulogom u translaciji, a koja ima karakterističnu sekundarnu strukturu u obliku deteline sa tri lista. Listove (petlje, \textit{loop}) čine neuparene baze, dok se kao veza između njih nalaze četiri zavojnice (drške, \textit{stem}) i umetnuti nukleotidi. Na drugom listu, otprilike u sredini sekvence, nalazi se antikodon aminokiseline koja se prenosi.
 
-U okviru rada na temi, implementirane su tri PCFG za potrebe predviđanja sekundarne strukture tRNK. Prva je gramatika tipa Nusinov, sa pravilima izvođenja $S \rightarrow dSd$ (uparivanje) $| SS$ (grananje) $| s$ (neuparena baza). Ona maksimizuje broj uparivanja, što je konceptualno opravdano. To, ipak, ne odgovara stvarnosti, pa ova gramatika ima samo teorijski značaj.
+U okviru rada na temi predviđanja sekundarne strukture tRNK, implementirane su tri PCFG s tim ciljem. Prva je gramatika tipa Nusinov, sa pravilima izvođenja $S \rightarrow dSd$ (uparivanje) $| SS$ (grananje) $| s$ (neuparena baza). Ona maksimizuje broj uparivanja, što je konceptualno opravdano. To, ipak, ne odgovara stvarnosti, pa ova gramatika ima samo teorijski značaj.
 
 Realizovana je i gramatika KH-99, sa pravilima izvođenja $S \rightarrow LS$ (nizanje elemenata) $| L$ (poslednji element), $L \rightarrow s$ (neuparena baza) $| dFd$ (početak zavojnice), $F \rightarrow dFd$ (nastavak zavojnice) $| LS$ (unutrašnjost zavojnice). Ona je složenija utoliko što drugačije ocenjuje početak i nastavak zavojnice. Uspešno predviđa opštu formu uvijanja, ali ipak nedovoljno tačno.
 
@@ -400,6 +398,21 @@ Naposletku je implementiran svojevrsni model kovarijacije, koji eksploatiše pos
 Skup podataka preuzet je iz baze tRNAdb, koja čuva sekvence tRNK sa pridruženim sekundarnim strukturama, i to u sekvencijalnom formatu tačka-zagrada. Nakon filtriranja, u skupu su ostale 432 sasvim korektne sekvence, koje su iskorišćene nadalje u obučavanju i proveri implementiranih gramatika. Predstavljene gramatike trenirane su na jednom delu skupa, koji je prethodno morao biti transformisan u odgovarajući skup stabala izvođenja, što je i učinjeno tehnikom rekurzivnog spusta. Gotovi modeli iskorišćeni su za predviđanje sekundarne strukture drugog dela podataka (ukupno 108 test instanci), što je poslužilo za evaluaciju modela.
 
 Rezultati su upoređeni kako vizuelno, tako i upotrebom numeričkih mera uspešnosti karakterističnih za istraživanje podataka: udeo tačno predviđenih oznaka i sasvim tačnih struktura, odziv, preciznost. Druge dve mere dobijene su tako što je problem predviđanja sekundarne strukture shvaćen kao problem pretraživanja informacija. U tom slučaju, informacijom (dokumentom) smatra se podatak da su dve baze uparene. Drugim rečima, informacija je par $(i, j)$, pri podrazumevanom uslovu $i < j$, što označava da su uparene baze na pozicijama $i$ i $j$.
+
+Primer ilustrativnog poređenja rezultata dat je na slici 7. Prikazana je jedna tRNK bakterije mikoplazme, njena sekvenca i stvarna struktura. Prikazana su i predvđanja prema svakoj od tri implementirane gramatike, kao i mere uspešnosti svakog od predviđanja na instanci. Primetan je opšti trend: najtačniji je kovarijacioni model, a najnetačnija gramatika tipa Nusinov.
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \captionsetup{width=0.7\linewidth}
+    \vspace{-0.15cm}
+    \subfloat{{\includegraphics[width=18cm]{primer}}}
+    \vspace{0.1cm}
+    \caption{Primer vizuelnog poređenja dobijenih rezultata}
+\end{figure}
+
+U tabeli 1 predstavljeni su svi modeli i njihova uspešnost na skupu za proveru. Primera radi, može se primetiti da model kovarijacije sasvim tačno predviđa više od pola (54\%) struktura, dok su mu ostale mere blizu maksimuma ($>$90\%). Uočljivo je i da znatno brže raste broj parametara od udela pogodaka, pa verovatno ne bi bilo preterano efikasno dalje usložnjavati modele.
 
 \begin{table}[h!]
     \centering
@@ -413,7 +426,7 @@ Rezultati su upoređeni kako vizuelno, tako i upotrebom numeričkih mera uspešn
   \end{tabular}
 \end{table}
 
-U tabeli 1 predstavljeni su svi modeli i njihova uspešnost na skupu za proveru. Primera radi, može se primetiti da model kovarijacije sasvim tačno predviđa više od pola (54\%) struktura, dok su mu ostale mere blizu maksimuma ($>$90\%). Uočljivo je i da znatno brže raste broj parametara od udela pogodaka, pa verovatno ne bi bilo preterano efikasno dalje usložnjavati modele. Svi izneseni zaključci u saglasnosti su sa rezultatima iz srodne literature, poput [7]. Celokupna implementacija, sa detaljnim objašnjenjima, podacima i gramatikama, može se naći na [8].
+Svi zaključci u saglasnosti su sa rezultatima iz srodne literature, poput [7]. Celokupna implementacija, sa detaljnim objašnjenjima, podacima i gramatikama, može se naći na [8].
 
 \newpage 
 
